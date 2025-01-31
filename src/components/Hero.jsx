@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
 import Button from "./Button.jsx";
 import { TiLocationArrow } from "react-icons/ti";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const Hero = () => {
   // define a current Index state to catch the current Video
@@ -34,11 +36,39 @@ const Hero = () => {
   // This will execute the number of videos times
   const upcomingVideoIndex = (currentIndex % totalVideos) + 1;
 
+  // Function to handle the hidden mini video sections while hovering
   const handleMiniVideoClick = () => {
     setHasClicked(true);
     setCurrentIndex(upcomingVideoIndex);
   };
 
+  // Add GSAP properties
+  useGSAP(
+    () => {
+      // Add smooth transition when change the video
+      gsap.set("#next-video", { visibility: "visible" });
+
+      gsap.to("#next-video", {
+        transformOrigin: "center center",
+        scale: 1,
+        width: "100%",
+        height: "100%",
+        duration: 1,
+        ease: "power1.inOut",
+        onStart: () => nextVideoRef.current.play(),
+      });
+
+      gsap.from("#current-video", {
+        transformOrigin: "center center",
+        scale: 0,
+        duration: 1.5,
+        ease: "power1.inOut",
+      });
+    },
+    { dependencies: [currentIndex], revertOnUpdate: true },
+  );
+
+  // Function to get the source of the video
   const getVideoSrc = (index) => `videos/hero-${index}.mp4`;
 
   return (
