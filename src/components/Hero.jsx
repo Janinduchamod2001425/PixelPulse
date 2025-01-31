@@ -1,8 +1,12 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Button from "./Button.jsx";
 import { TiLocationArrow } from "react-icons/ti";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+
+import { ScrollTrigger } from "gsap/all";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
   // define a current Index state to catch the current Video
@@ -18,7 +22,7 @@ const Hero = () => {
   const [loadedVideos, setLoadedVideos] = useState(0);
 
   // Total number of videos
-  const totalVideos = 3;
+  const totalVideos = 4;
 
   // Stores a reference to the previously played video.
   // Helps track the last played video without triggering a re-render.
@@ -42,10 +46,17 @@ const Hero = () => {
     setCurrentIndex(upcomingVideoIndex);
   };
 
+  // If any video is take time to play show the loading indicator
+  useEffect(() => {
+    if (loadedVideos === totalVideos - 1) {
+      setIsLoading(false);
+    }
+  }, [loadedVideos]);
+
   // Add GSAP properties
+  // 1. Add smooth transition when change the video
   useGSAP(
     () => {
-      // Add smooth transition when change the video
       gsap.set("#next-video", { visibility: "visible" });
 
       gsap.to("#next-video", {
@@ -68,11 +79,43 @@ const Hero = () => {
     { dependencies: [currentIndex], revertOnUpdate: true },
   );
 
+  // 2. Add smooth scrolling effect to video frame
+  useGSAP(() => {
+    // Add polygon effect to video frame
+    gsap.set("#video-frame", {
+      clipPath: "polygon(14% 0%, 72% 0%, 90% 90%, 0% 100%)",
+      borderRadius: "0 0 40% 10%",
+    });
+
+    // Set the polygon as Rectangle in initial state
+    gsap.from("#video-frame", {
+      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+      borderRadius: "0 0 0 0",
+      ease: "power1.inOut",
+      scrollTrigger: {
+        trigger: "#video-frame",
+        start: "center center",
+        end: "bottom center",
+        scrub: true,
+      },
+    });
+  });
+
   // Function to get the source of the video
   const getVideoSrc = (index) => `videos/hero-${index}.mp4`;
 
   return (
     <div className="relative h-dvh w-screen overflow-x-hidden">
+      {isLoading && (
+        <div className="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-violet-50">
+          <div className="three-body">
+            <div className="three-body__dot" />
+            <div className="three-body__dot" />
+            <div className="three-body__dot" />
+          </div>
+        </div>
+      )}
+
       <div
         id="video-frame"
         className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75"
