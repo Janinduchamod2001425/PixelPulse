@@ -173,7 +173,10 @@ const Hero = () => {
           <div className="mt-24 px-5 sm:px-10">
             {/*Top Heading*/}
             <h1 className="special-font hero-heading text-blue-100">
-              redefi<b>n</b>e
+              Pi<b>x</b>el{" "}
+              <span className="text-5xl">
+                P<b>u</b>lse
+              </span>
             </h1>
 
             {/*Sub Title*/}
