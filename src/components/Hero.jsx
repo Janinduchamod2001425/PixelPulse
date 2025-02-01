@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import Button from "./Button.jsx";
 import { TiLocationArrow } from "react-icons/ti";
+
+// Import GSAP and ScrollTrigger for animations
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-
 import { ScrollTrigger } from "gsap/all";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -48,7 +49,7 @@ const Hero = () => {
 
   // If any video is take time to play show the loading indicator
   useEffect(() => {
-    if (loadedVideos === totalVideos - 1) {
+    if (loadedVideos === totalVideos - 2) {
       setIsLoading(false);
     }
   }, [loadedVideos]);
