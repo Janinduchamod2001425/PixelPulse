@@ -11,3 +11,15 @@ npm create vite@latest .
 ```bash
 npm install @gsap/react gsap
 ```
+
+### Run the Project
+
+```bash
+npm run dev
+```
+
+### Deploy the Project in to Vercel
+
+```bash
+npm run build
+```
