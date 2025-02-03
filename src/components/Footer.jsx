@@ -24,7 +24,7 @@ const Footer = () => {
           <span className="text-xs">Developed By : Janindu Chamod</span>
         </p>
 
-        <div className="flex justify-center gap-4 md:justify-start">
+        <div className="flex justify-center gap-4">
           {socialLinks.map((link, index) => (
             <a
               key={index}
@@ -36,14 +36,14 @@ const Footer = () => {
               {link.icon}
             </a>
           ))}
-        </div>
 
-        <a
-          href="#privacy-policy"
-          className="text-center text-sm font-medium hover:underline md:text-right"
-        >
-          Privacy Policy
-        </a>
+          <a
+            href="#privacy-policy"
+            className="text-center text-sm font-medium hover:underline md:text-right"
+          >
+            Privacy Policy
+          </a>
+        </div>
       </div>
     </footer>
   );
