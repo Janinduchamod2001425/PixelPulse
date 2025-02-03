@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Button from "./Button.jsx";
 import { TiLocationArrow } from "react-icons/ti";
+import { IoClose } from "react-icons/io5";
 import { useWindowScroll } from "react-use";
 import gsap from "gsap";
 
@@ -11,9 +12,22 @@ const Navbar = () => {
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const [isIndicatorActive, setIsIndicatorActive] = useState(false);
 
+  // State to manage audio pop up box
+  const [showAudioPopup, setShowAudioPopup] = useState(false);
+
   // Refs for audio and navigation container
   const navContainerRef = useRef(null);
   const audioElementRef = useRef(null);
+
+  // Refs for audio pop up box
+  const popupRef = useRef(null);
+
+  // check if the user has already seen the audio pop up
+  useEffect(() => {
+    if (!localStorage.getItem("audioPopupSeen")) {
+      setShowAudioPopup(true);
+    }
+  }, []);
 
   // Get current scroll position and manage navigation bar visibility
   const { y: currentScrollY } = useWindowScroll();
@@ -24,6 +38,8 @@ const Navbar = () => {
   const toggleAudioIndicator = () => {
     setIsAudioPlaying((prev) => !prev);
     setIsIndicatorActive((prev) => !prev);
+    setShowAudioPopup(false);
+    localStorage.setItem("audioPopupSeen", "true");
   };
 
   // Manage audio playback
@@ -63,6 +79,17 @@ const Navbar = () => {
     });
   }, [isNavVisible]);
 
+  // Add GSAP to audio pop up box
+  useEffect(() => {
+    if (showAudioPopup) {
+      gsap.fromTo(
+        popupRef.current,
+        { opacity: 0, y: -10 },
+        { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" },
+      );
+    }
+  }, [showAudioPopup]);
+
   return (
     <div
       ref={navContainerRef}
@@ -99,28 +126,49 @@ const Navbar = () => {
             </div>
 
             {/*Music Play Button*/}
-            <button
-              onClick={toggleAudioIndicator}
-              className="ml-10 flex items-center space-x-0.5"
-            >
-              <audio
-                ref={audioElementRef}
-                src="/audio/loop.mp3"
-                className="hidden"
-                loop
-              />
-
-              {/*Audio Indicators*/}
-              {[1, 2, 3, 4].map((bar) => (
-                <div
-                  key={bar}
-                  className={`indicator-line ${isIndicatorActive ? "active" : ""}`}
-                  style={{
-                    animationDelay: `${bar * 0.1}s`,
-                  }}
+            <div className="relative">
+              <button
+                onClick={toggleAudioIndicator}
+                className="ml-10 flex items-center space-x-0.5"
+              >
+                <audio
+                  ref={audioElementRef}
+                  src="/audio/puuung.mp3"
+                  className="hidden"
+                  loop
                 />
-              ))}
-            </button>
+
+                {/*Audio Indicators*/}
+                {[1, 2, 3, 4].map((bar) => (
+                  <div
+                    key={bar}
+                    className={`indicator-line ${isIndicatorActive ? "active" : ""}`}
+                    style={{
+                      animationDelay: `${bar * 0.1}s`,
+                    }}
+                  />
+                ))}
+              </button>
+
+              {/*Instruction Box*/}
+              {showAudioPopup && (
+                <div
+                  ref={popupRef}
+                  className="absolute sm:right-0 right-12 sm:left-2 sm:top-3 sm:mt-2 w-40 -translate-x-1/2 rounded-lg bg-gray-900 p-3 text-xs text-white shadow-md animate-fadeIn"
+                >
+                  🎵 Click here to enable background music!
+                  <button
+                    onClick={() => {
+                      setShowAudioPopup(false);
+                      localStorage.setItem("audioPopupSeen", "true");
+                    }}
+                    className="mt-2 w-full rounded-lg bg-violet-300 px-2 py-1 text-xs text-white animate-bounce font-medium"
+                  >
+                    Got it!
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         </nav>
       </header>
