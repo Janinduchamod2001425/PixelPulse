@@ -154,7 +154,7 @@ const Navbar = () => {
               {showAudioPopup && (
                 <div
                   ref={popupRef}
-                  className="absolute sm:right-0 right-12 sm:left-2 sm:top-3 sm:mt-2 w-40 -translate-x-1/2 rounded-lg bg-gray-900 p-3 text-xs text-white shadow-md animate-fadeIn"
+                  className="absolute sm:right-0 sm:left-2 -left-5 sm:top-3 top-10 sm:mt-2 w-40 -translate-x-1/2 rounded-lg bg-gray-900 p-3 text-xs text-white shadow-md animate-fadeIn"
                 >
                   🎵 Click here to enable background music!
                   <button
