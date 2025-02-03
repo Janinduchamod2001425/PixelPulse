@@ -178,7 +178,8 @@ const Hero = () => {
 
             {/*Sub Title*/}
             <p className="mb-5 max-w-64 font-robert-regular text-blue-100">
-              Enter the Metagame Layer <br /> Unleash the Play Economy
+              Enter the Puuung world <br /> Experience the Beauty of lovable
+              Moments
             </p>
 
             {/*Trailer Button*/}
