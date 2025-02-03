@@ -20,7 +20,8 @@ const Footer = () => {
     <footer className="w-screen bg-orange-300 py-4 text-black">
       <div className="container mx-auto flex flex-col items-center justify-between gap-4 px-8 md:flex-row">
         <p className="text-center text-sm font-medium md:text-left">
-          ©PixelPulse 2025. All rights reserved
+          ©ScorpioCJ 2025. All rights reserved |{" "}
+          <span className="text-xs">Developed By : Janindu Chamod</span>
         </p>
 
         <div className="flex justify-center gap-4 md:justify-start">
