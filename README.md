@@ -1,4 +1,4 @@
-# PixelPulse
+# Puuung
 
 ### Create Vite App (In the root directory)
 
