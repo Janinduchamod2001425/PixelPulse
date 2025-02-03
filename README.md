@@ -1,6 +1,6 @@
 # 🌸 Puuung
 
-<img src="https://go-skill-icons.vercel.app/api/icons?i=react,tailwind,gsap,vercel" />
+<img src="https://go-skill-icons.vercel.app/api/icons?i=react,tailwind,gsap,vercel"  alt="Cover Image"/>
 
 ![Puuung App Demo](./cover/Puuung.png)
 
