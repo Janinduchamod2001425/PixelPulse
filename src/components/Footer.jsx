@@ -17,8 +17,8 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <footer className="w-screen bg-violet-300 py-4 text-gray-400">
-      <div className="container mx-auto flex flex-col items-center justify-between gap-4 px-4 md:flex-row">
+    <footer className="w-screen bg-orange-300 py-4 text-black">
+      <div className="container mx-auto flex flex-col items-center justify-between gap-4 px-8 md:flex-row">
         <p className="text-center text-sm font-medium md:text-left">
           ©PixelPulse 2025. All rights reserved
         </p>
@@ -39,7 +39,7 @@ const Footer = () => {
 
         <a
           href="#privacy-policy"
-          className="text-center text-sm font-light hover:underline md:text-right"
+          className="text-center text-sm font-medium hover:underline md:text-right"
         >
           Privacy Policy
         </a>

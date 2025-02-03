@@ -4,7 +4,7 @@ import { TiLocationArrow } from "react-icons/ti";
 import { useWindowScroll } from "react-use";
 import gsap from "gsap";
 
-const navItems = ["PixelPulse", "Vault", "Prologue", "About", "Contact"];
+const navItems = ["Puuung", "Posts", "Videos", "About", "Contact"];
 
 const Navbar = () => {
   // State for toggling audio and visual indicator
@@ -73,13 +73,13 @@ const Navbar = () => {
         <nav className="flex size-full items-center justify-between p-4">
           <div className="flex items-center gap-7">
             {/*Logo*/}
-            <img src="/img/logo.png" alt="Logo" className="w-10" />
+            <img src="/img/logo.png" alt="Logo" className="w-10 rounded" />
 
             {/*Products Button*/}
             <Button
               id="product-button"
               title="Products"
-              rightIcon={<TiLocationArrow />}
+              rightIcon={<TiLocationArrow className="animate-pulse" />}
               containerClass="bg-blue-50 md:flex hidden items-center justify-center gap-1"
             />
           </div>

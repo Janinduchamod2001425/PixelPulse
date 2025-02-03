@@ -75,14 +75,13 @@ const Features = () => {
         <div className="px-5 py-32">
           {/*Features Title*/}
           <p className="font-circular-web text-lg text-blue-50">
-            Into the Metagame Layer
+            💖 Love in Every Little Moment
           </p>
 
           {/*Description*/}
           <p className="max-w-md font-circular-web text-lg text-blue-50 opacity-50">
-            Immerse yourself in a rich and ever-expanding universe where a
-            vibrant array of products converge into an interconnected overlay
-            experience on your world.
+            Discover the warmth of everyday love through heartfelt illustrations
+            that capture the beauty of small, meaningful moments in life.
           </p>
         </div>
 
@@ -94,61 +93,103 @@ const Features = () => {
             src="videos/feature-1.mp4"
             title={
               <>
-                radi<b>n</b>t
+                Love in the <b>Li</b>ttle Things
               </>
             }
-            description="A cross-platform metagame app, turning your activities across Web2 and Web3 games into a rewarding adventure."
+            description="Celebrate the beauty of everyday moments with illustrations that bring warmth, love, and nostalgia to life."
             isComingSoon
           />
         </BentoTilt>
 
         {/*Feature card grid*/}
-        <div className="grid h-[135vh] grid-cols-2 grid-rows-3 gap-7">
-          {/*Zigma Card*/}
-          <BentoTilt className="bento-tilt_1 row-span-1 md:col-span-1 md:row-span-2">
-            <BentoCard
-              src="videos/feature-2.mp4"
-              title={
-                <>
-                  zig<b>m</b>a
-                </>
-              }
-              description="An anime and gaming-inspired NFT collection - the IP primed for expansion."
-              isComingSoon
-            />
-          </BentoTilt>
-
-          {/*Nexus Card*/}
-          <BentoTilt className="bento-tilt_1 row-span-1 ms-32 md:col-span-1 md:ms-0">
-            <BentoCard
-              src="videos/feature-3.mp4"
-              title={
-                <>
-                  n<b>e</b>xus
-                </>
-              }
-              description="A gamified social hub, adding a new dimension of play to social interaction for Web3 communities."
-              isComingSoon
-            />
-          </BentoTilt>
-
-          {/*Azul Card*/}
-          <BentoTilt className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
+        <div className="grid h-[135vh] sm:grid-cols-4 grid-cols-2 grid-rows-3 gap-7">
+          {/*Love Card*/}
+          <BentoTilt className="bento-tilt_1 row-span-4 md:col-span-1 md:row-span-2">
             <BentoCard
               src="videos/feature-4.mp4"
               title={
                 <>
-                  az<b>u</b>l
+                  Lo<b>v</b>e
                 </>
               }
-              description="A cross-world AI Agent - elevating your gameplay to be more fun and productive."
+              description="Cherishing love in the simplest moments."
+              isComingSoon
+            />
+          </BentoTilt>
+
+          {/*Bond Card*/}
+          <BentoTilt className="bento-tilt_1 row-span-4 md:col-span-1 md:row-span-2">
+            <BentoCard
+              src="videos/feature-7.mp4"
+              title={
+                <>
+                  B<b>o</b>nd
+                </>
+              }
+              description="A simple embrace, a world of love."
+              isComingSoon
+            />
+          </BentoTilt>
+
+          {/*Warm Card*/}
+          <BentoTilt className="bento-tilt_1 row-span-4 md:col-span-1 md:row-span-2">
+            <BentoCard
+              src="videos/feature-3.mp4"
+              title={
+                <>
+                  War<b>m</b>th
+                </>
+              }
+              description="Finding comfort in everyday love."
+              isComingSoon
+            />
+          </BentoTilt>
+
+          {/*Together Card*/}
+          <BentoTilt className="bento-tilt_1 row-span-4 md:col-span-1 md:row-span-2">
+            <BentoCard
+              src="videos/feature-6.mp4"
+              title={
+                <>
+                  To<b>g</b>ether
+                </>
+              }
+              description="Love is beautiful when shared."
+              isComingSoon
+            />
+          </BentoTilt>
+
+          {/*Heart Card*/}
+          <BentoTilt className="bento-tilt_1 row-span-1 ms-32 md:col-span-1 md:ms-0">
+            <BentoCard
+              src="videos/feature-5.mp4"
+              title={
+                <>
+                  He<b>a</b>rt
+                </>
+              }
+              description="A space where love connects hearts across time and place."
+              isComingSoon
+            />
+          </BentoTilt>
+
+          {/*Hug Card*/}
+          <BentoTilt className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
+            <BentoCard
+              src="videos/feature-2.mp4"
+              title={
+                <>
+                  H<b>u</b>g
+                </>
+              }
+              description="Strengthening bonds through shared moments and gentle connection."
               isComingSoon
             />
           </BentoTilt>
 
           {/* Coming soon Card*/}
           <BentoTilt className="bento-tilt_2">
-            <div className="flex size-full flex-col justify-between bg-violet-300 p-5">
+            <div className="flex size-full flex-col justify-between bg-orange-300 p-5">
               <h1 className="bento-title special-font max-w-64 text-black">
                 M<b>o</b>re co<b>m</b>ing s<b>o</b>on!
               </h1>
@@ -160,7 +201,7 @@ const Features = () => {
           {/*Small Video Card*/}
           <BentoTilt className="bento-tilt_2">
             <video
-              src="videos/feature-5.mp4"
+              src="videos/feature-8.mp4"
               loop
               muted
               autoPlay

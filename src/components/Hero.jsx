@@ -23,7 +23,7 @@ const Hero = () => {
   const [loadedVideos, setLoadedVideos] = useState(0);
 
   // Total number of videos
-  const totalVideos = 4;
+  const totalVideos = 5;
 
   // Stores a reference to the previously played video.
   // Helps track the last played video without triggering a re-render.
@@ -49,7 +49,7 @@ const Hero = () => {
 
   // If any video is take time to play show the loading indicator
   useEffect(() => {
-    if (loadedVideos === totalVideos - 2) {
+    if (loadedVideos === totalVideos - 3) {
       setIsLoading(false);
     }
   }, [loadedVideos]);
@@ -103,7 +103,7 @@ const Hero = () => {
   });
 
   // Function to get the source of the video
-  const getVideoSrc = (index) => `videos/hero-${index}.mp4`;
+  const getVideoSrc = (index) => `videos/puuung/puuung-${index}.mp4`;
 
   return (
     <div className="relative h-dvh w-screen overflow-x-hidden">
@@ -165,7 +165,7 @@ const Hero = () => {
 
         {/*Bottom Heading */}
         <h1 className="special-font hero-heading absolute bottom-5 right-5 z-40 text-blue-75">
-          G<b>a</b>ming
+          Ani<b>m</b>e
         </h1>
 
         {/*Top Header section*/}
@@ -173,10 +173,7 @@ const Hero = () => {
           <div className="mt-24 px-5 sm:px-10">
             {/*Top Heading*/}
             <h1 className="special-font hero-heading text-blue-100">
-              Pi<b>x</b>el{" "}
-              <span className="text-5xl">
-                P<b>u</b>lse
-              </span>
+              Pu<b>uu</b>ng
             </h1>
 
             {/*Sub Title*/}
@@ -187,8 +184,8 @@ const Hero = () => {
             {/*Trailer Button*/}
             <Button
               id="watch-trailer"
-              title="Watch Trailer"
-              leftIcon={<TiLocationArrow />}
+              title="Watch Videos"
+              leftIcon={<TiLocationArrow className="animate-bounce" />}
               containerClass="!bg-yellow-300 flex-center gap-1"
             />
           </div>
@@ -197,7 +194,7 @@ const Hero = () => {
 
       {/*Bottom Heading */}
       <h1 className="special-font hero-heading absolute bottom-5 right-5 text-black">
-        G<b>a</b>ming
+        Ani<b>m</b>e
       </h1>
     </div>
   );
